@@ -30,6 +30,7 @@ namespace PTcompiladores
             Application.Exit();
         }
 
+        //metodo para abrir un archivo
         private void abrirToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
@@ -42,6 +43,7 @@ namespace PTcompiladores
             }
         }
 
+        //metodo para guardar un archivo
         private void guardarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SaveFileDialog svf = new SaveFileDialog();
@@ -55,31 +57,37 @@ namespace PTcompiladores
             }
         }
 
+        //metodo que realiza la accion de eliminar el texto 
         private void deshacerToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Rtxt.Undo();
         }
 
+        //metodo que realiza la accion de rehacer texto
         private void rehacerToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Rtxt.Redo();
         }
 
+        //metodo que realiza la accion de cortar texto
         private void cortarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Rtxt.Cut();
         }
 
+        //metodo que realiza la accion de copiar texto
         private void copiarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Rtxt.Copy();
         }
 
+        //metodo que realiza la accion de pegar texto
         private void pegarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Rtxt.Paste();
         }
 
+        //metodo que realiza la accion de seleccionar todo el texto
         private void seleccionartodoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Rtxt.SelectAll();
