@@ -80,6 +80,9 @@
             this.MSArriba.Size = new System.Drawing.Size(1253, 35);
             this.MSArriba.TabIndex = 0;
             this.MSArriba.Text = "menuStrip1";
+            this.MSArriba.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MSArriba_MouseDown);
+            this.MSArriba.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MSArriba_MouseMove);
+            this.MSArriba.MouseUp += new System.Windows.Forms.MouseEventHandler(this.MSArriba_MouseUp);
             // 
             // archivoToolStripMenuItem
             // 
@@ -347,7 +350,7 @@
             this.Controls.Add(this.Rtxt);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.MSArriba);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MainMenuStrip = this.MSArriba;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmMain";

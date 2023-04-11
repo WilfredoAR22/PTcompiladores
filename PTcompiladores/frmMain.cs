@@ -120,5 +120,27 @@ namespace PTcompiladores
                 UpdateLineNumber();
             }
         }
+
+        //Variables para mover el panel de arriba
+        int m, mx, my;
+        private void MSArriba_MouseDown(object sender, MouseEventArgs e)
+        {
+            m = 1;
+            mx = e.X;
+            my = e.Y;
+        }
+
+        private void MSArriba_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (m == 1)
+            {
+                this.SetDesktopLocation(MousePosition.X - mx, MousePosition.Y - my);
+            }
+        }
+
+        private void MSArriba_MouseUp(object sender, MouseEventArgs e)
+        {
+            m = 0;
+        }
     }
 }
