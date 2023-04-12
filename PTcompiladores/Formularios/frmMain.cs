@@ -19,10 +19,39 @@ namespace PTcompiladores
             InitializeComponent();
         }
 
+        //salir de la aplicacion
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        //Variables para mover el panel de arriba
+        int m, mx, my;
+        private void pnlArriba_MouseDown(object sender, MouseEventArgs e)
+        {
+            m = 1;
+            mx = e.X;
+            my = e.Y;
+        }
+
+        private void pnlArriba_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (m == 1)
+            {
+                this.SetDesktopLocation(MousePosition.X - mx, MousePosition.Y - my);
+            }
+        }
+
+        
+        private void pnlArriba_MouseUp(object sender, MouseEventArgs e)
+        {
+            m = 0;
+        }
+        
         //nuevo documento de txt
         private void nuevoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Rtxt.Clear();
+            RTtxt.Clear();
         }
 
         //cerrar aplicacion
@@ -37,10 +66,10 @@ namespace PTcompiladores
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.Filter = "Archivos de texto (*.txt)|*.txt|Todos los archivos (*.*)|*.*";
             ofd.Title = "Open a file...";
-            if(ofd.ShowDialog() == DialogResult.OK)
+            if (ofd.ShowDialog() == DialogResult.OK)
             {
                 System.IO.StreamReader sr = new System.IO.StreamReader(ofd.FileName);
-                Rtxt.Text = sr.ReadToEnd();
+                RTtxt.Text = sr.ReadToEnd();
             }
         }
 
@@ -53,7 +82,7 @@ namespace PTcompiladores
             if (svf.ShowDialog() == DialogResult.OK)
             {
                 System.IO.StreamWriter sw = new System.IO.StreamWriter(svf.FileName);
-                sw.WriteLine(Rtxt.Text);
+                sw.WriteLine(RTtxt.Text);
                 sw.Close();
             }
         }
@@ -61,39 +90,38 @@ namespace PTcompiladores
         //metodo que realiza la accion de eliminar el texto 
         private void deshacerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Rtxt.Undo();
+            RTtxt.Undo();
         }
 
         //metodo que realiza la accion de rehacer texto
         private void rehacerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Rtxt.Redo();
+            RTtxt.Redo();
         }
 
         //metodo que realiza la accion de cortar texto
         private void cortarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Rtxt.Cut();
+            RTtxt.Cut();
         }
 
         //metodo que realiza la accion de copiar texto
         private void copiarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Rtxt.Copy();
+            RTtxt.Copy();
         }
 
         //metodo que realiza la accion de pegar texto
         private void pegarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Rtxt.Paste();
+            RTtxt.Paste();
         }
 
         //metodo que realiza la accion de seleccionar todo el texto
         private void seleccionartodoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Rtxt.SelectAll();
+            RTtxt.SelectAll();
         }
-
 
         //metodos para capturar la linea del rich
 
@@ -102,16 +130,16 @@ namespace PTcompiladores
 
         private void UpdateLineNumber()
         {
-            label1.Text = "";
+            RTnum.Text = "";
             for (int i = 1; i <= currentLineNumber; i++)
             {
-                label1.Text += i + "\n";
+                RTnum.Text += i + "\n";
             }
         }
 
-        private void Rtxt_TextChanged(object sender, EventArgs e)
+        private void RTtxt_TextChanged(object sender, EventArgs e)
         {
-            string[] lines = Rtxt.Lines;
+            string[] lines = RTtxt.Lines;
             int lineNumber = lines.Length;
 
             // Actualiza el número de línea solo si ha cambiado
@@ -123,18 +151,10 @@ namespace PTcompiladores
         }
 
         //metodo para verificar que se estan recorriendo los caracteres
-        private void opcionesToolStripMenuItem_Click(object sender, EventArgs e)
+        private void herramientasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            /*string contenido = "";
-            foreach (string linea in Rtxt.Lines)
-            {
-                contenido += linea + "\n";
-            }
-            MessageBox.Show(contenido);*/
-
-
             // Obtener el texto actual del RichTextBox
-            string text = Rtxt.Text;
+            string text = RTtxt.Text;
 
             // Crear una nueva cadena para almacenar el texto sin espacios en blanco
             string newText = "";
@@ -142,8 +162,8 @@ namespace PTcompiladores
             // Recorrer cada carácter del texto
             for (int i = 0; i < text.Length; i++)
             {
-                // Si el carácter actual no es un espacio en blanco, agregarlo a la nueva cadena
-                if (text[i] != ' ')
+                // Si el carácter actual no es un espacio en blanco, un salto de línea ni una tabulación, agregarlo a la nueva cadena
+                if (text[i] != ' ' && text[i] != '\n' && text[i] != '\r' && text[i] != '\t')
                 {
                     newText += text[i];
                 }
@@ -151,42 +171,18 @@ namespace PTcompiladores
 
             // Establecer el nuevo texto sin espacios en blanco en el RichTextBox
             MessageBox.Show(newText);
-
         }
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-             Panel contenedor = new Panel();
-             contenedor.Dock = DockStyle.Top;
-             contenedor.Height = Rtxt.Height + label1.Height;
+            Panel contenedor = new Panel();
+            contenedor.Dock = DockStyle.Top;
+            contenedor.Height = RTtxt.Height + RTnum.Height;
 
-             Rtxt.Parent = contenedor;
-             label1.Parent = contenedor;
+            RTtxt.Parent = contenedor;
+            RTnum.Parent = contenedor;
 
-             panel1.Controls.Add(contenedor);
-
-        }
-
-        //Variables para mover el panel de arriba
-        int m, mx, my;
-        private void MSArriba_MouseDown(object sender, MouseEventArgs e)
-        {
-            m = 1;
-            mx = e.X;
-            my = e.Y;
-        }
-
-        private void MSArriba_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (m == 1)
-            {
-                this.SetDesktopLocation(MousePosition.X - mx, MousePosition.Y - my);
-            }
-        }
-
-        private void MSArriba_MouseUp(object sender, MouseEventArgs e)
-        {
-            m = 0;
+            pnlPrincipal.Controls.Add(contenedor);
         }
     }
 }
