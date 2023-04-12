@@ -7,6 +7,7 @@ using System.Linq;
 using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
+//using System.Windows.Controls;
 using System.Windows.Forms;
 
 namespace PTcompiladores
@@ -108,17 +109,6 @@ namespace PTcompiladores
             }
         }
 
-        //metodo para verificar que se estan recorriendo los caracteres
-        private void opcionesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            string contenido = "";
-            foreach (string linea in Rtxt.Lines)
-            {
-                contenido += linea + "\n";
-            }
-            MessageBox.Show(contenido);
-        }
-
         private void Rtxt_TextChanged(object sender, EventArgs e)
         {
             string[] lines = Rtxt.Lines;
@@ -130,6 +120,38 @@ namespace PTcompiladores
                 currentLineNumber = lineNumber;
                 UpdateLineNumber();
             }
+        }
+
+        //metodo para verificar que se estan recorriendo los caracteres
+        private void opcionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            /*string contenido = "";
+            foreach (string linea in Rtxt.Lines)
+            {
+                contenido += linea + "\n";
+            }
+            MessageBox.Show(contenido);*/
+
+
+            // Obtener el texto actual del RichTextBox
+            string text = Rtxt.Text;
+
+            // Crear una nueva cadena para almacenar el texto sin espacios en blanco
+            string newText = "";
+
+            // Recorrer cada carácter del texto
+            for (int i = 0; i < text.Length; i++)
+            {
+                // Si el carácter actual no es un espacio en blanco, agregarlo a la nueva cadena
+                if (text[i] != ' ')
+                {
+                    newText += text[i];
+                }
+            }
+
+            // Establecer el nuevo texto sin espacios en blanco en el RichTextBox
+            MessageBox.Show(newText);
+
         }
 
         private void frmMain_Load(object sender, EventArgs e)
