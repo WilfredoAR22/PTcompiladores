@@ -35,10 +35,7 @@
             this.abrirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.guardarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.guardarcomoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.imprimirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.vistapreviadeimpresiónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -59,9 +56,11 @@
             this.buscarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.acercadeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.label1 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.Rtxt = new System.Windows.Forms.RichTextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.MSArriba.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // MSArriba
@@ -91,10 +90,7 @@
             this.abrirToolStripMenuItem,
             this.toolStripSeparator,
             this.guardarToolStripMenuItem,
-            this.guardarcomoToolStripMenuItem,
             this.toolStripSeparator1,
-            this.imprimirToolStripMenuItem,
-            this.vistapreviadeimpresiónToolStripMenuItem,
             this.toolStripSeparator2,
             this.salirToolStripMenuItem});
             this.archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
@@ -107,7 +103,7 @@
             this.nuevoToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.nuevoToolStripMenuItem.Name = "nuevoToolStripMenuItem";
             this.nuevoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.nuevoToolStripMenuItem.Size = new System.Drawing.Size(344, 32);
+            this.nuevoToolStripMenuItem.Size = new System.Drawing.Size(252, 32);
             this.nuevoToolStripMenuItem.Text = "&Nuevo";
             this.nuevoToolStripMenuItem.Click += new System.EventHandler(this.nuevoToolStripMenuItem_Click);
             // 
@@ -117,14 +113,14 @@
             this.abrirToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.abrirToolStripMenuItem.Name = "abrirToolStripMenuItem";
             this.abrirToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.abrirToolStripMenuItem.Size = new System.Drawing.Size(344, 32);
+            this.abrirToolStripMenuItem.Size = new System.Drawing.Size(252, 32);
             this.abrirToolStripMenuItem.Text = "&Abrir";
             this.abrirToolStripMenuItem.Click += new System.EventHandler(this.abrirToolStripMenuItem_Click);
             // 
             // toolStripSeparator
             // 
             this.toolStripSeparator.Name = "toolStripSeparator";
-            this.toolStripSeparator.Size = new System.Drawing.Size(341, 6);
+            this.toolStripSeparator.Size = new System.Drawing.Size(249, 6);
             // 
             // guardarToolStripMenuItem
             // 
@@ -132,47 +128,24 @@
             this.guardarToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.guardarToolStripMenuItem.Name = "guardarToolStripMenuItem";
             this.guardarToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.guardarToolStripMenuItem.Size = new System.Drawing.Size(344, 32);
+            this.guardarToolStripMenuItem.Size = new System.Drawing.Size(252, 32);
             this.guardarToolStripMenuItem.Text = "&Guardar";
             this.guardarToolStripMenuItem.Click += new System.EventHandler(this.guardarToolStripMenuItem_Click);
-            // 
-            // guardarcomoToolStripMenuItem
-            // 
-            this.guardarcomoToolStripMenuItem.Name = "guardarcomoToolStripMenuItem";
-            this.guardarcomoToolStripMenuItem.Size = new System.Drawing.Size(344, 32);
-            this.guardarcomoToolStripMenuItem.Text = "G&uardar como";
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(341, 6);
-            // 
-            // imprimirToolStripMenuItem
-            // 
-            this.imprimirToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("imprimirToolStripMenuItem.Image")));
-            this.imprimirToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.imprimirToolStripMenuItem.Name = "imprimirToolStripMenuItem";
-            this.imprimirToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
-            this.imprimirToolStripMenuItem.Size = new System.Drawing.Size(344, 32);
-            this.imprimirToolStripMenuItem.Text = "&Imprimir";
-            // 
-            // vistapreviadeimpresiónToolStripMenuItem
-            // 
-            this.vistapreviadeimpresiónToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("vistapreviadeimpresiónToolStripMenuItem.Image")));
-            this.vistapreviadeimpresiónToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.vistapreviadeimpresiónToolStripMenuItem.Name = "vistapreviadeimpresiónToolStripMenuItem";
-            this.vistapreviadeimpresiónToolStripMenuItem.Size = new System.Drawing.Size(344, 32);
-            this.vistapreviadeimpresiónToolStripMenuItem.Text = "&Vista previa de impresión";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(249, 6);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(341, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(249, 6);
             // 
             // salirToolStripMenuItem
             // 
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(344, 32);
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(252, 32);
             this.salirToolStripMenuItem.Text = "&Salir";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
@@ -260,20 +233,21 @@
             this.personalizarToolStripMenuItem,
             this.opcionesToolStripMenuItem});
             this.herramientasToolStripMenuItem.Name = "herramientasToolStripMenuItem";
-            this.herramientasToolStripMenuItem.Size = new System.Drawing.Size(153, 31);
-            this.herramientasToolStripMenuItem.Text = "&Herramientas";
+            this.herramientasToolStripMenuItem.Size = new System.Drawing.Size(113, 31);
+            this.herramientasToolStripMenuItem.Text = "&Compilar";
             // 
             // personalizarToolStripMenuItem
             // 
             this.personalizarToolStripMenuItem.Name = "personalizarToolStripMenuItem";
-            this.personalizarToolStripMenuItem.Size = new System.Drawing.Size(213, 32);
-            this.personalizarToolStripMenuItem.Text = "&Personalizar";
+            this.personalizarToolStripMenuItem.Size = new System.Drawing.Size(173, 32);
+            this.personalizarToolStripMenuItem.Text = "&Ejecutar";
             // 
             // opcionesToolStripMenuItem
             // 
             this.opcionesToolStripMenuItem.Name = "opcionesToolStripMenuItem";
-            this.opcionesToolStripMenuItem.Size = new System.Drawing.Size(213, 32);
-            this.opcionesToolStripMenuItem.Text = "&Opciones";
+            this.opcionesToolStripMenuItem.Size = new System.Drawing.Size(173, 32);
+            this.opcionesToolStripMenuItem.Text = "&prueba";
+            this.opcionesToolStripMenuItem.Click += new System.EventHandler(this.opcionesToolStripMenuItem_Click);
             // 
             // ayudaToolStripMenuItem
             // 
@@ -316,16 +290,16 @@
             this.acercadeToolStripMenuItem.Size = new System.Drawing.Size(207, 32);
             this.acercadeToolStripMenuItem.Text = "&Acerca de...";
             // 
-            // label1
+            // panel1
             // 
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(240)))), ((int)(((byte)(227)))));
-            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label1.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F);
-            this.label1.Location = new System.Drawing.Point(0, 35);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(59, 548);
-            this.label1.TabIndex = 3;
+            this.panel1.AutoScroll = true;
+            this.panel1.Controls.Add(this.Rtxt);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 35);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1253, 548);
+            this.panel1.TabIndex = 5;
             // 
             // Rtxt
             // 
@@ -333,13 +307,25 @@
             this.Rtxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Rtxt.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Rtxt.Font = new System.Drawing.Font("Microsoft YaHei UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Rtxt.Location = new System.Drawing.Point(59, 35);
+            this.Rtxt.Location = new System.Drawing.Point(58, 0);
             this.Rtxt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Rtxt.Name = "Rtxt";
-            this.Rtxt.Size = new System.Drawing.Size(1194, 548);
-            this.Rtxt.TabIndex = 4;
+            this.Rtxt.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
+            this.Rtxt.Size = new System.Drawing.Size(1195, 548);
+            this.Rtxt.TabIndex = 6;
             this.Rtxt.Text = "";
             this.Rtxt.TextChanged += new System.EventHandler(this.Rtxt_TextChanged);
+            // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(240)))), ((int)(((byte)(227)))));
+            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label1.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F);
+            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(58, 548);
+            this.label1.TabIndex = 5;
             // 
             // frmMain
             // 
@@ -347,15 +333,16 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(211)))), ((int)(((byte)(174)))));
             this.ClientSize = new System.Drawing.Size(1253, 583);
-            this.Controls.Add(this.Rtxt);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.MSArriba);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MainMenuStrip = this.MSArriba;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmMain";
+            this.Load += new System.EventHandler(this.frmMain_Load);
             this.MSArriba.ResumeLayout(false);
             this.MSArriba.PerformLayout();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -369,10 +356,7 @@
         private System.Windows.Forms.ToolStripMenuItem abrirToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator;
         private System.Windows.Forms.ToolStripMenuItem guardarToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem guardarcomoToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripMenuItem imprimirToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem vistapreviadeimpresiónToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editarToolStripMenuItem;
@@ -393,8 +377,9 @@
         private System.Windows.Forms.ToolStripMenuItem buscarToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.ToolStripMenuItem acercadeToolStripMenuItem;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.RichTextBox Rtxt;
+        private System.Windows.Forms.Label label1;
     }
 }
 
