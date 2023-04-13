@@ -155,34 +155,53 @@ namespace PTcompiladores
         //metodo para verificar que se estan recorriendo los caracteres
         private void herramientasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string patron = @"^W[a-z][a-z]*W$"; // Expresión regular que valida una cadena de letras
-            Regex regex = new Regex(patron);
-
-            bool hayErrores = false;
-            int numeroLinea = 1;
-
-            // Recorrer todas las líneas del RichTextBox
-            foreach (string linea in RTtxt.Lines)
+            List<string> patrones = new List<string>() 
             {
-                // Limpiar la línea eliminando los saltos de línea, espacios vacíos y tabulaciones
-                string lineaLimpia = linea.Replace("\r", "").Replace("\n", "").Replace("\t", "").Trim();
+                @"^[0-9][0-9]*$", // enteros
+                @"^[0-9][0-9]*.[0-9][0-9]*$", // flotantes
+                @"^[a-z][A-Z][a-zA-Z0-9]*$", // identificadores
+                @"^W[a-z][a-z]*$", // palabras de sistema
+                @"^[\;]$", // terminales
+                @"^(!|,|;|\(|\))$", //signos
+                @"^[<>]=?|==$", //operadores de comparacion
+                @"^[+\-*/]$", //operaciones aritmeticas
+                @"^[A-Za-z0-9]+$", //literales
+                @"^\*\-[A-za-z0-9\n]*\-\*$", // comentarios
+            };
 
-                // Validar la línea limpia utilizando la expresión regular
-                if (!regex.IsMatch(lineaLimpia))
-                {
-                    // Si la línea no cumple con la expresión regular, generar un mensaje de error que incluya el número de línea
-                    MessageBox.Show($"Error: la línea {numeroLinea} no cumple con el patrón ");
-                    hayErrores = true;
-                }
+            List<Regex> regexes = patrones.Select(p => new Regex(p)).ToList();
 
-                numeroLinea++;
-            }
+             bool hayErrores = false;
+             int numeroLinea = 1;
 
-            if (!hayErrores)
-            {
-                // Si no hubo errores, el programa ha compilado correctamente
-                MessageBox.Show("Programa compilado correctamente");
-            }
+             foreach (string linea in RTtxt.Lines)
+             {
+                string lineaLimpia = Regex.Replace(linea, @"\s+", ""); // Eliminar espacios en blanco, saltos de línea y tabulaciones
+
+                bool cumpleConPatron = false;
+
+                 for (int i = 0; i < regexes.Count; i++)
+                 {
+                     if (regexes[i].IsMatch(lineaLimpia))
+                     {
+                         cumpleConPatron = true;
+                         break;
+                     }
+                 }
+
+                 if (!cumpleConPatron)
+                 {
+                     MessageBox.Show($"Error: la línea {numeroLinea} no cumple con ningún patrón");
+                     hayErrores = true;
+                 }
+
+                 numeroLinea++;
+             }
+
+             if (!hayErrores)
+             {
+                 MessageBox.Show("Programa compilado correctamente");
+             }
         }
 
         private void frmMain_Load(object sender, EventArgs e)
