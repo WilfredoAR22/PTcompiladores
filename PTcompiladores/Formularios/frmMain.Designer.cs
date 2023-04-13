@@ -32,8 +32,6 @@
             this.pnlArriba = new System.Windows.Forms.Panel();
             this.btnSalir = new System.Windows.Forms.PictureBox();
             this.pnlMain = new System.Windows.Forms.Panel();
-            this.RTtxt = new System.Windows.Forms.RichTextBox();
-            this.RTnum = new System.Windows.Forms.RichTextBox();
             this.MSopciones = new System.Windows.Forms.MenuStrip();
             this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nuevoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -60,6 +58,8 @@
             this.buscarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.acercadeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.RTtxt = new System.Windows.Forms.RichTextBox();
+            this.RTnum = new System.Windows.Forms.RichTextBox();
             this.pnlPrincipal = new System.Windows.Forms.Panel();
             this.pnlArriba.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnSalir)).BeginInit();
@@ -100,34 +100,6 @@
             this.pnlMain.Name = "pnlMain";
             this.pnlMain.Size = new System.Drawing.Size(1321, 39);
             this.pnlMain.TabIndex = 1;
-            // 
-            // RTtxt
-            // 
-            this.RTtxt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(25)))), ((int)(((byte)(26)))));
-            this.RTtxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.RTtxt.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.RTtxt.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RTtxt.ForeColor = System.Drawing.SystemColors.Window;
-            this.RTtxt.Location = new System.Drawing.Point(57, 0);
-            this.RTtxt.Name = "RTtxt";
-            this.RTtxt.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
-            this.RTtxt.Size = new System.Drawing.Size(1264, 726);
-            this.RTtxt.TabIndex = 2;
-            this.RTtxt.Text = "";
-            this.RTtxt.TextChanged += new System.EventHandler(this.RTtxt_TextChanged);
-            // 
-            // RTnum
-            // 
-            this.RTnum.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(230)))), ((int)(((byte)(239)))));
-            this.RTnum.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.RTnum.Dock = System.Windows.Forms.DockStyle.Left;
-            this.RTnum.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RTnum.Location = new System.Drawing.Point(0, 0);
-            this.RTnum.Name = "RTnum";
-            this.RTnum.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
-            this.RTnum.Size = new System.Drawing.Size(57, 726);
-            this.RTnum.TabIndex = 1;
-            this.RTnum.Text = "";
             // 
             // MSopciones
             // 
@@ -358,6 +330,35 @@
             this.acercadeToolStripMenuItem.Name = "acercadeToolStripMenuItem";
             this.acercadeToolStripMenuItem.Size = new System.Drawing.Size(207, 32);
             this.acercadeToolStripMenuItem.Text = "&Acerca de...";
+            // 
+            // RTtxt
+            // 
+            this.RTtxt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(25)))), ((int)(((byte)(26)))));
+            this.RTtxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.RTtxt.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.RTtxt.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RTtxt.ForeColor = System.Drawing.SystemColors.Window;
+            this.RTtxt.Location = new System.Drawing.Point(57, 0);
+            this.RTtxt.Name = "RTtxt";
+            this.RTtxt.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
+            this.RTtxt.Size = new System.Drawing.Size(1264, 726);
+            this.RTtxt.TabIndex = 2;
+            this.RTtxt.Text = "";
+            this.RTtxt.TextChanged += new System.EventHandler(this.RTtxt_TextChanged);
+            // 
+            // RTnum
+            // 
+            this.RTnum.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(230)))), ((int)(((byte)(239)))));
+            this.RTnum.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.RTnum.Dock = System.Windows.Forms.DockStyle.Left;
+            this.RTnum.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RTnum.Location = new System.Drawing.Point(0, 0);
+            this.RTnum.Name = "RTnum";
+            this.RTnum.ReadOnly = true;
+            this.RTnum.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
+            this.RTnum.Size = new System.Drawing.Size(57, 726);
+            this.RTnum.TabIndex = 1;
+            this.RTnum.Text = "";
             // 
             // pnlPrincipal
             // 

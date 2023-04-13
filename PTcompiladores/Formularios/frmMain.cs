@@ -7,8 +7,8 @@ using System.Linq;
 using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
-//using System.Windows.Controls;
 using System.Windows.Forms;
+using System.Text.RegularExpressions; //para validar mis expresiones
 
 namespace PTcompiladores
 {
@@ -17,6 +17,8 @@ namespace PTcompiladores
         public frmMain()
         {
             InitializeComponent();
+            RTtxt.Focus();
+
         }
 
         //salir de la aplicacion
@@ -153,24 +155,34 @@ namespace PTcompiladores
         //metodo para verificar que se estan recorriendo los caracteres
         private void herramientasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // Obtener el texto actual del RichTextBox
-            string text = RTtxt.Text;
+            string patron = @"^W[a-z][a-z]*W$"; // Expresión regular que valida una cadena de letras
+            Regex regex = new Regex(patron);
 
-            // Crear una nueva cadena para almacenar el texto sin espacios en blanco
-            string newText = "";
+            bool hayErrores = false;
+            int numeroLinea = 1;
 
-            // Recorrer cada carácter del texto
-            for (int i = 0; i < text.Length; i++)
+            // Recorrer todas las líneas del RichTextBox
+            foreach (string linea in RTtxt.Lines)
             {
-                // Si el carácter actual no es un espacio en blanco, un salto de línea ni una tabulación, agregarlo a la nueva cadena
-                if (text[i] != ' ' && text[i] != '\n' && text[i] != '\r' && text[i] != '\t')
+                // Limpiar la línea eliminando los saltos de línea, espacios vacíos y tabulaciones
+                string lineaLimpia = linea.Replace("\r", "").Replace("\n", "").Replace("\t", "").Trim();
+
+                // Validar la línea limpia utilizando la expresión regular
+                if (!regex.IsMatch(lineaLimpia))
                 {
-                    newText += text[i];
+                    // Si la línea no cumple con la expresión regular, generar un mensaje de error que incluya el número de línea
+                    MessageBox.Show($"Error: la línea {numeroLinea} no cumple con el patrón ");
+                    hayErrores = true;
                 }
+
+                numeroLinea++;
             }
 
-            // Establecer el nuevo texto sin espacios en blanco en el RichTextBox
-            MessageBox.Show(newText);
+            if (!hayErrores)
+            {
+                // Si no hubo errores, el programa ha compilado correctamente
+                MessageBox.Show("Programa compilado correctamente");
+            }
         }
 
         private void frmMain_Load(object sender, EventArgs e)
